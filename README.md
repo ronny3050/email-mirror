@@ -1,5 +1,10 @@
-# Module: Email
+# Email
 This module displays emails on Mirror and listens for new incoming emails. When a new email is received, the mirror is updated to display it.
+
+## Installing the module
+
+To install the module, just clone this repository to your __modules__ folder: `git clone https://github.com/ronny3050/email-mirror.git email`. 
+Then run `npm install` which will install the dependencies.
 
 ## Using the module
 
