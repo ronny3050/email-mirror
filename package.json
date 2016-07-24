@@ -1,0 +1,17 @@
+{
+  "name": "email",
+  "description": "Widget that notifies mirror on new incoming email.",
+  "keywords": [
+    "email",
+    "mirror",
+    "smart mirror",
+    "mirror email"
+  ],
+  "version": "0.0.1",
+  "dependencies": {
+    "debug": "^2.2.0",
+    "imap": "~0.8.9",
+    "mailparser": "~0.4",
+    "underscore": "latest"
+  }
+}
