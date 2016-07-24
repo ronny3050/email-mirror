@@ -90,12 +90,5 @@ The following properties can be configured:
 				<br><b>Default value:</b> <code>true</code>
 			</td>
 		</tr>
-		<tr>
-			<td><code>calendars</code></td>
-			<td>The list of calendars.<br>
-				<br><b>Possible values:</b> An array, see <i>calendar configuration</i> below.
-				<br><b>Default value:</b> <i>An example calendar.</i>
-			</td>
-		</tr>
 	</tbody>
 </table>
