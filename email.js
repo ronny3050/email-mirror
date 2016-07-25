@@ -2,7 +2,7 @@
  * Created by debayan on 7/24/16.
  */
 
-Widget.register("email",{
+Module.register("email",{
 
     defaults : {
         user: 'a@b.com',
