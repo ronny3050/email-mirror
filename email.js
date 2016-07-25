@@ -94,7 +94,7 @@ Widget.register("email",{
             });
         }
         else{
-            wrapper.innerHTML = (this.loaded) ? "No new mails" : "LOADING";
+            wrapper.innerHTML = (this.loaded) ? "No new mails" : this.translate("LOADING");
             wrapper.className = "small dimmed";
             return wrapper;
         }
