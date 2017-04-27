@@ -12,7 +12,8 @@ Module.register("email",{
         tls: true,
         authTimeout: 10000,
         numberOfEmails: 5,
-        fade: true
+        fade: true,
+        maxCharacters: 30
     },
     payload: [],
 
@@ -56,7 +57,10 @@ Module.register("email",{
             this.payload.slice(0,this.config.numberOfEmails).forEach(function (mailObj) {
 
                 var name = mailObj.sender[0].name.replace(/['"]+/g,"");
+                name = name.substring(0,that.config.maxCharacters);
+                
                 var subject = mailObj.subject.replace(/[\['"\]]+/g,"");
+                subject = subject.substring(0,that.config.maxCharacters);
 
                 var emailWrapper = document.createElement("tr");
                 emailWrapper.className = "normal";
