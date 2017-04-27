@@ -25,7 +25,8 @@ modules: [
                 tls: true,
                 authTimeout: 10000,
                 numberOfEmails: 5,
-                fade: true
+                fade: true,
+		maxCharacters: 30
         },
 	}
 ]
@@ -83,6 +84,12 @@ The following properties can be configured:
 			<td><code>numberOfEmails</code></td>
 			<td>Number of emails to display at a time<br>
 				<br><b>Default value:</b> <code>5</code>
+			</td>
+		</tr>
+		<tr>
+			<td><code>maxCharacters</code></td>
+			<td>Maximum number of characters to display<br>
+				<br><b>Default value:</b> <code>30</code>
 			</td>
 		</tr>
 		<tr>
