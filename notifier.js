@@ -9,10 +9,13 @@ var util = require('util'),
 
 var dbg = debug('mailnotifier');
 
+var numberOfEmails;
+
 function Notifier(opts) {
     EventEmitter.call(this);
     var self = this;
     self.options = opts;
+    numberOfEmails = opts.numberOfEmails;
     if (self.options.username) { //backward compat
         self.options.user = self.options.username;
     }
@@ -63,19 +66,21 @@ Notifier.prototype.start = function () {
 };
 
 Notifier.prototype.scan = function () {
-    var self = this, search = self.options.search || ['UNSEEN'];
+    var self = this, search = self.options.search || ['UNSEEN'] || ['RECENT'];
+
     dbg('scanning %s with filter `%s`.', self.options.box,  search);
     self.imap.search(search, function (err, seachResults) {
         if (err) {
             self.emit('error', err);
             return;
         }
+        seachResults = seachResults.slice(Math.max(seachResults.length - numberOfEmails, 1));
         if (!seachResults || seachResults.length === 0) {
             dbg('no new mail in %s', self.options.box);
             self.emit('nonew');
             return;
         }
-        dbg('found %d new messages', seachResults.length);
+
         var fetch = self.imap.fetch(seachResults, {
             markSeen: self.options.markSeen !== false,
             bodies: ''
