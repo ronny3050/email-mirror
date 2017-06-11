@@ -15,19 +15,33 @@ To use this module, add it to the modules array in the `config/config.js` file:
 modules: [
 	{
 		module: 'email',
-            position: 'bottom_left',
-            header: 'Email',
-            config:{
-                user: 'johndoe@gmail.com',
-                password: 'xxx',
-                host: 'imap.gmail.com',
-                port: 993,
-                tls: true,
-                authTimeout: 10000,
-                numberOfEmails: 5,
-                fade: true,
-		maxCharacters: 30
-        },
+                position: 'bottom_left',
+                header: 'Email',
+                config: {
+                    accounts: [
+                        {
+                            user: 'johndoe@xyz.com',
+                            password: 'helloworld',
+                            host: 'outlook.office365.com',
+                            port: 993,
+                            tls: true,
+                            authTimeout: 10000,
+                            numberOfEmails: 2,
+
+                        },
+                        {
+                            user: 'janedoe@gmail.com',
+                            password: 'goodbyeworld',
+                            host: 'imap.gmail.com',
+                            port: 993,
+                            tls: true,
+                            authTimeout: 10000,
+                            numberOfEmails: 2,
+                        }
+                    ],
+                    fade: true,
+                    maxCharacters: 30
+                }
 	}
 ]
 ````
