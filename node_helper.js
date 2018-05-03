@@ -39,7 +39,9 @@ module.exports = NodeHelper.create({
                         var seqs = [];
                         if (this.payload.length > 0)
                             this.payload.forEach(function (o) {
-                                seqs.push(o.id);
+                                if (o && o.id) {
+                                    seqs.push(o.id);
+                                }
                             });
 
                         var n = notifier(imap);
