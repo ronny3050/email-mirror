@@ -32,8 +32,9 @@ Module.register("email",{
                 this.loaded = true;
                 var that = this;
                 console.log("NEW PAYLOAD: ", payload);
+                var payloadIds = that.payload.map(function(m) {return m.id});
                 payload.forEach(function(m){
-                    if(that.payload.indexOf(m.id) == -1)
+                    if(payloadIds.indexOf(m.id) == -1)
                         that.payload.push(m);
                 });
 
