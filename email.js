@@ -14,7 +14,8 @@ Module.register("email",{
     //             authTimeout: 10000,
     //             numberOfEmails: 5,
     //             fade: true,
-    //             maxCharacters: 30
+    //             maxCharacters: 30,
+    //             showBody: false
     //         }
     //     ]
     payload: [],
@@ -109,6 +110,15 @@ Module.register("email",{
                     subjectWrapper.innerHTML = subject;
                     emailWrapper.appendChild(subjectWrapper);
 
+                    if (that.config.showBody) {
+                        var body = mailObj.body.replace(/[\['"\]]+/g, "");
+                        body = body.substring(0, that.config.maxCharacters);                    
+                        var bodyWrapper = document.createElement("tr");
+                        bodyWrapper.className = "light";
+                        bodyWrapper.innerHTML = body;
+                        emailWrapper.appendChild(bodyWrapper);
+                    }
+                    
                     wrapper.appendChild(emailWrapper);
 
 
