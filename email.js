@@ -105,19 +105,22 @@ Module.register("email",{
                     senderWrapper.appendChild(addressWrapper);
                     emailWrapper.appendChild(senderWrapper);
 
-                    var subjectWrapper = document.createElement("tr");
+                    var subjectAndBodyWrapper = document.createElement("tr");
+                    subjectAndBodyWrapper.className = "light";   
+                    
+                    var subjectWrapper = document.createElement("td");
                     subjectWrapper.className = "light";
                     subjectWrapper.innerHTML = subject;
-                    emailWrapper.appendChild(subjectWrapper);
-
-                    if (that.config.showBody) {
-                        var body = mailObj.body.replace(/[\['"\]]+/g, "");
-                        body = body.substring(0, that.config.maxCharacters);                    
-                        var bodyWrapper = document.createElement("tr");
-                        bodyWrapper.className = "light";
+                    subjectAndBodyWrapper.appendChild(subjectWrapper);
+                    if (that.config.showBody && mailObj.body) {
+                        var body = mailObj.body.replace(/[\['"\]]+/g, "");                                                                      
+                        body = body.substring(0, that.config.maxCharacters);                                                                    
+                        var bodyWrapper = document.createElement("td");
+                        bodyWrapper.className = "xsmall thin";
                         bodyWrapper.innerHTML = body;
-                        emailWrapper.appendChild(bodyWrapper);
+                        subjectAndBodyWrapper.appendChild(bodyWrapper);
                     }
+                    emailWrapper.appendChild(subjectAndBodyWrapper);   
                     
                     wrapper.appendChild(emailWrapper);
 
