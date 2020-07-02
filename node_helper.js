@@ -56,9 +56,11 @@ module.exports = NodeHelper.create({
                                     name: m.from[0].name
                                 }];
                                 var b = m.subject;
+                                var c = m.text;
                                 var tmp = {
                                     sender: a,
                                     subject: b,
+                                    body: c,
                                     id: s,
                                     host: m.to[0].address
                                 };
