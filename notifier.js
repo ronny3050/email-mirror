@@ -74,7 +74,7 @@ Notifier.prototype.scan = function () {
             self.emit('error', err);
             return;
         }
-        seachResults = seachResults.slice(Math.max(seachResults.length - numberOfEmails, 1));
+        seachResults = seachResults.slice(0, Math.max(seachResults.length - numberOfEmails, 1));
         if (!seachResults || seachResults.length === 0) {
             dbg('no new mail in %s', self.options.box);
             self.emit('nonew');
