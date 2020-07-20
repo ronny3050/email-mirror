@@ -14,7 +14,8 @@ Module.register("email",{
     //             authTimeout: 10000,
     //             numberOfEmails: 5,
     //             fade: true,
-    //             maxCharacters: 30
+    //             maxCharacters: 30,
+    //             showBody: false
     //         }
     //     ]
     payload: [],
@@ -104,11 +105,23 @@ Module.register("email",{
                     senderWrapper.appendChild(addressWrapper);
                     emailWrapper.appendChild(senderWrapper);
 
-                    var subjectWrapper = document.createElement("tr");
+                    var subjectAndBodyWrapper = document.createElement("tr");
+                    subjectAndBodyWrapper.className = "light";   
+                    
+                    var subjectWrapper = document.createElement("td");
                     subjectWrapper.className = "light";
                     subjectWrapper.innerHTML = subject;
-                    emailWrapper.appendChild(subjectWrapper);
-
+                    subjectAndBodyWrapper.appendChild(subjectWrapper);
+                    if (that.config.showBody && mailObj.body) {
+                        var body = mailObj.body.replace(/[\['"\]]+/g, "");                                                                      
+                        body = body.substring(0, that.config.maxCharacters);                                                                    
+                        var bodyWrapper = document.createElement("td");
+                        bodyWrapper.className = "xsmall thin";
+                        bodyWrapper.innerHTML = body;
+                        subjectAndBodyWrapper.appendChild(bodyWrapper);
+                    }
+                    emailWrapper.appendChild(subjectAndBodyWrapper);   
+                    
                     wrapper.appendChild(emailWrapper);
 
 

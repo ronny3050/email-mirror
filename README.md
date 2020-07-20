@@ -40,7 +40,8 @@ modules: [
                         }
                     ],
                     fade: true,
-                    maxCharacters: 30
+                    maxCharacters: 30,
+		    showBody: true
                 }
 	}
 ]
@@ -104,6 +105,12 @@ The following properties can be configured:
 			<td><code>maxCharacters</code></td>
 			<td>Maximum number of characters to display<br>
 				<br><b>Default value:</b> <code>30</code>
+			</td>
+		</tr>
+		<tr>
+			<td><code>showBody</code></td>
+			<td>Should an excerpt of the body be displayed (up to maxCharacters)?<br>
+				<br><b>Default value:</b> <code>false</code>
 			</td>
 		</tr>
 		<tr>
