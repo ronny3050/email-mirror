@@ -81,7 +81,7 @@ Module.register("email",{
 
                     var host = mailObj.host.slice(0,1) + '@' + mailObj.host.substr(mailObj.host.indexOf('@') + 1)[0];
 
-                    var name = mailObj.sender[0].name.replace(/['"]+/g, "");
+                    var name = mailObj.from[0].name.replace(/['"]+/g, "");
                     name = name.substring(0, that.config.maxCharacters);
 
                     var subject = mailObj.subject.replace(/[\['"\]]+/g, "");
